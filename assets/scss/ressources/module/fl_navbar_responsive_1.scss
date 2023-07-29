@@ -1,0 +1,98 @@
+$fl_navbar_responsive_1_bg_color: red;
+$fl_navbar_responsive_1_bg_links_color: $fl_navbar_responsive_1_bg_color;
+$fl_navbar_responsive_1_height: 75px;
+$fl_navbar_responsive_1_color_txt: black;
+
+.fl_navbar_responsive_1 {
+    width: 100%;
+    height: $fl_navbar_responsive_1_height;
+    display: flex;
+    align-items: center;
+    background-color: $fl_navbar_responsive_1_bg_color;
+  
+    > {
+        .nav_main {
+            flex: 0.95;
+            padding-left: 2rem;
+        }
+  
+        .nav_links {
+            display: flex;
+            gap: 2rem;
+    
+            > li {
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+    
+                a {
+                    text-decoration: none;
+                    cursor: pointer;
+                    color: $fl_navbar_responsive_1_color_txt;
+                }
+            }
+        }
+
+        .nav_btn {
+            display: none;
+        }
+  
+        #nav_check {
+            display: none;
+        }
+    }
+}
+  
+@media (max-width: 800px) {
+    .fl_navbar_responsive_1 {
+        padding: 1rem;
+  
+        > {
+            .nav_main {
+                
+                padding-left: 1rem;
+            }
+
+            .nav_btn {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+    
+                 label {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 50px;
+                    height: 50px;
+                    padding: 30px;
+                }
+            }
+  
+            .nav_links {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                height: 0;
+                transition: all 0.3s ease-in;
+                top: $fl_navbar_responsive_1_height;
+                left: 0;
+                overflow: hidden;
+                background-color: $fl_navbar_responsive_1_bg_links_color;
+                
+
+                > li {
+                    width: 100%;
+                    margin-top: 1.75rem;
+                    margin-left: 2rem;
+                }
+            }
+    
+            #nav_check:checked ~ .nav_links {
+                height: calc(100vh - $fl_navbar_responsive_1_height);
+            }
+        }
+    }
+}

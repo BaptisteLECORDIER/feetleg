@@ -1,0 +1,60 @@
+
+#menu_checkbox {
+    display: none;
+}
+  
+label {
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  
+    
+  
+    div {
+        position: relative;
+        top: 0;
+        height: 20%;
+        background-color: #000000;
+        margin-bottom: 20%;
+        transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width, 0.3s ease right;
+        border-radius: 200px;
+    
+        &:first-child {
+            transform-origin: 0;
+        }
+    
+        &:last-child {
+            margin-bottom: 0;
+            transform-origin: 100%;
+        }
+    
+        &:nth-child(2) {
+            right: 0;
+            width: 100%;
+        }
+    }
+}
+  
+#menu_checkbox:checked + label {
+    
+    div {
+        &:first-child {
+            top: -10%;
+            transform: rotateZ(45deg);
+        }
+    
+        &:last-child {
+            top: 10%;
+            transform: rotateZ(45deg);
+        }
+    
+        &:nth-child(2) {
+            width: 141.6%;
+            top: 0;
+            right: 21.6%;
+            transform: rotateZ(-45deg);
+        }
+    }
+}
+  

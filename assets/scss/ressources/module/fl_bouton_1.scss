@@ -1,0 +1,101 @@
+$fl_bouton_1_padding: 12px 22px 12px 32px;
+$fl_bouton_1_font_weight: 600;
+$fl_bouton_1_font_size: large;
+$fl_bouton_1_border_radius: 1000px;
+
+@keyframes btn_hover_translation {
+    from {
+        opacity: 0;
+        left: -10px;
+    }
+
+    to {
+        opacity: 100;
+        left: 3px;
+    }
+}
+
+@keyframes btn_not_hover_translation {
+    from {
+        opacity: 100;
+        left: 3px;
+    }
+
+    to {
+        opacity: 0;
+        left: -10px;
+    }
+}
+
+@keyframes btn_hover_translation_2 {
+    from {
+        left: 0px;
+    }
+
+    to {
+        left: -7px;
+    }
+}
+
+@keyframes btn_not_hover_translation_2 {
+    from {
+        left: -7px; 
+    }
+
+    to {
+        left: 0px;
+    }
+}
+
+.btn {
+    background: none;
+    border: none;
+    border-radius: $fl_bouton_1_border_radius;
+    display: flex;
+    padding: $fl_bouton_1_padding;
+    font-size: $fl_bouton_1_font_size;
+    height: min-content;
+
+    & p {
+        font-weight: $fl_bouton_1_font_weight;
+    }
+}
+
+.default .can_move {
+    opacity: 0;
+}
+
+.btn_hover_translation {
+    & p {
+        position: relative;
+        animation-name: btn_not_hover_translation_2;
+        animation-duration: 0.35s;
+        animation-fill-mode: forwards;
+    }
+    
+    & .can_move {
+        animation-name: btn_not_hover_translation;
+        animation-duration: 0.35s;
+        animation-fill-mode: forwards;
+    }
+
+    &:hover {
+        & p {
+            position: relative;
+            animation-name: btn_hover_translation_2;
+            animation-duration: 0.35s;
+            animation-fill-mode: forwards;
+        }
+    
+        & .can_move {
+            animation-name: btn_hover_translation;
+            animation-duration: 0.35s;
+            animation-fill-mode: forwards;
+        }
+    }
+}
+
+.can_move {
+    position: relative;
+    top: 1.65px;
+}
